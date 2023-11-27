@@ -1,0 +1,9 @@
+FROM fedora:39
+
+RUN dnf -y install salt-master && \
+    dnf clean all && \
+    rm -rf /var/cache/yum
+
+RUN sed -i "s|#auto_accept: False|auto_accept: True|g" /etc/salt/master
+
+CMD ["salt-master", "-l", "debug"]
