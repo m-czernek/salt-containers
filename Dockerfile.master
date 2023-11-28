@@ -1,7 +1,6 @@
-FROM fedora:39
+FROM registry.opensuse.org/opensuse/tumbleweed
 
-RUN dnf -y install salt-master && \
-    dnf clean all && \
+RUN zypper --non-interactive install salt-master && \
     rm -rf /var/cache/yum
 
 RUN sed -i "s|#auto_accept: False|auto_accept: True|g" /etc/salt/master

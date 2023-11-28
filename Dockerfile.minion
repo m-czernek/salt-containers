@@ -1,7 +1,7 @@
-FROM fedora:39
+FROM registry.opensuse.org/opensuse/tumbleweed
 
-RUN dnf -y install salt-minion && \
+RUN zypper --non-interactive install salt-minion && \
     dnf clean all && \
     rm -rf /var/cache/yum
 
-CMD ["salt-proxy", "--proxyid", "salt-minion", "-l", "debug"]
+CMD ["salt-minion", "-l", "debug"]

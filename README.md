@@ -26,7 +26,7 @@ podman run --name salt --network salt-network salt-master
 * Start the minion node:
 
 ```
-podman run --name salt-minion --network salt-network salt-minion:proxy
+podman run --name salt-minion --network salt-network salt-minion
 ```
 
 Then, you can execute `salt` commands, e.g.:
